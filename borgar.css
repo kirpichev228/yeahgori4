@@ -1,0 +1,113 @@
+@media (max-width: 770px) {
+    .header-content {
+        grid-template-columns: 30px  20px;
+        
+    }
+
+    /* бургер не закрывается при нажатии на пункт меню */
+
+    .header-content-language-switch {
+        display: none;
+    }
+
+    .header-burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        z-index: 6;
+    }
+
+    .header-burger::before,
+    .header-burger::after {
+        content: '';
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+
+    .header-burger.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+
+    .header-burger.active::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+
+    .header-burger.active span {
+        transform: scale(0);
+    }
+
+    .header-burger span {
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: 9px;
+        transition: all 0.3s ease 0s;
+    }
+     
+    .header-burger::before {
+        top: 0;
+    }
+
+    .header-burger::after {
+        bottom: 0;
+    }
+
+    .heaer-content-nav {
+        position: fixed;
+        top: 0;
+        left: -170%;
+        width: 70%;
+        height: 100%;
+        background-color: black;
+        padding: 70px 0 0 0;
+        z-index: 5;
+        transition: all 0.3s ease 0s;
+        overflow: auto;
+    }
+
+    .heaer-content-nav.active {
+        right: 0;
+        left: 30%;
+    }
+
+    .heaer-content-nav-list {
+        display: block;
+        margin-left: 157px;
+        font-family: Inter;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 73px;
+        letter-spacing: 0;
+        text-align: left;
+
+    }
+
+    body.lock {
+        overflow: hidden;
+    }
+
+    @media (max-width: 500px) {
+        .heaer-content-nav {
+            width: 100%;
+        }
+
+        .heaer-content-nav.active {
+            right: 0;
+            left: 0;
+        }
+
+        .heaer-content-nav-list {
+            margin-left: 70px;
+        }
+    }
+}
